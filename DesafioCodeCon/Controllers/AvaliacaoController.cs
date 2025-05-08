@@ -1,5 +1,4 @@
 ﻿using DesafioCodeCon.Dtos.Responses;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

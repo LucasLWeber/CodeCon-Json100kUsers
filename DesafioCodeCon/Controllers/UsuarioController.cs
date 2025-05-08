@@ -1,7 +1,6 @@
 ﻿using DesafioCodeCon.Dtos.Requests;
 using DesafioCodeCon.Models;
 using DesafioCodeCon.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
