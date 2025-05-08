@@ -1,9 +1,8 @@
 ﻿using DesafioCodeCon.Models;
-using System.Collections.ObjectModel;
 
 namespace DesafioCodeCon.Repositories
 {
-    public class UserRepository
+    public class UsuarioRepository
     {
         private readonly Dictionary<Guid, Usuario> _db = new(); 
 
