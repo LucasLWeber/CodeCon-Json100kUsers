@@ -42,6 +42,7 @@ namespace DesafioCodeCon.Controllers
 
                     results.Add(new EvaluationDto
                     {
+                        EndPoint = ep,
                         StatusCode = response.StatusCode,
                         TimeMs = (int) stopWatch.ElapsedMilliseconds,
                         ValidResponse = response.IsSuccessStatusCode
