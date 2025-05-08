@@ -25,6 +25,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 // Injeção de dependências
 builder.Services.AddSingleton<UsuarioRepository>();
 builder.Services.AddSingleton<AnalisesService>();
+builder.Services.AddHttpClient();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
