@@ -16,6 +16,9 @@ namespace DesafioCodeCon.Models
         [JsonPropertyName("score")]
         public int Score {  get; set; }
 
+        [JsonPropertyName("ativo")]
+        public bool Ativo {  get; set; }
+
         [JsonPropertyName("pais")]
         public string Pais { get; set; }
 

@@ -1,4 +1,5 @@
 using DesafioCodeCon.Repositories;
+using DesafioCodeCon.Services;
 using Microsoft.AspNetCore.Http.Features;
 using System.Text.Json;
 
@@ -23,6 +24,7 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 
 // Injeção de dependências
 builder.Services.AddSingleton<UsuarioRepository>();
+builder.Services.AddSingleton<AnalisesService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
