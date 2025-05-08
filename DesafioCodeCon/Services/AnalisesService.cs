@@ -30,5 +30,38 @@ namespace DesafioCodeCon.Services
                 )
                 .ToList();
         }
+
+        public List<TeamInsightsDto> TeamInsights()
+        {
+            return _usuarioRepository.GetAll()
+                .GroupBy(u => u.Equipe.Nome)
+                .Select(g => new TeamInsightsDto
+                    {
+                        Nome = g.Key,
+                        TotalMembros = g.Count(),
+                        Lideres = g.Count(u => u.Equipe.Lider),
+                        ProjetosConcluidos = g.SelectMany(u => u.Equipe.Projetos).Count(p => p.Concluido),
+                        PctAtivo = g.Count(u => u.Ativo) * 100 / g.Count()
+                    }
+                )
+                .ToList();
+        }
+
+        public List<ActiveUsersPerDayDto> DiaryLogins(int? min)
+        {
+            return _usuarioRepository.GetAll()
+                .SelectMany(u => u.Logs)
+                .Where(u => u.Acao == "login")
+                .GroupBy(log => log.Data.Date)
+                .Select(g => new ActiveUsersPerDayDto
+                    {
+                        Data = g.Key,
+                        Total = g.Count(),
+                    }
+                )
+                .Where(x => !min.HasValue || x.Total >= min)
+                .OrderBy(x => x.Data.Date)
+                .ToList();
+        }
     }
 }
